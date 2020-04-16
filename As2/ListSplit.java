@@ -5,7 +5,7 @@ class Node {
     public Node next;
 }
 class ListSplit {
-    public Node outn, outp, tmp;
+    public Node outn, outp;
 
     public ListSplit() {
         outn = null;
@@ -13,34 +13,33 @@ class ListSplit {
     }
 
     public void split(Node first) {
+        Node lstp, lstn;
+        lstp = null; lstn = null;
         while (first != null) {
-            if (first.data >= 0) {
+            if (first.data > 0) {
                 if (outp == null) {
                     outp = first;
+                    lstp = first;
                     first = first.next;
-                }
-                else {
-                    tmp = outp;
-                    while  (tmp.next != null) {
-                        tmp = tmp.next;
-                    }
-                    tmp.next = first;
-                    tmp = null;
-                }
-            } else {
-                if (outn == null) {
-                    outn = first;
+                } else {
+                    lstp.next = first;
                     first = first.next;
-                }
-                else {
-                    tmp = outn;
-                    while (tmp.next != null) {
-                        tmp = tmp.next;
-                    }
-                    tmp.next = first;
-                    tmp = null;
                 }
             }
+            else if (first.data < 0) {
+                if (outn == null) {
+                    outn = first;
+                    lstn = first;
+                    first = first.next;
+                } else {
+                    lstn.next = first;
+                    first = first.next;
+                }
+            } else {}
         }
+        lstp.next = null;
+        lstn.next = null;
+        lstp = null;
+        lstn = null;
     }
 }

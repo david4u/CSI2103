@@ -23,16 +23,19 @@ public class CIter {
     }
     public int delete() {
         if (!isValid()) return -1;
-        else if (cur != prev) {
+        else if (!cur.equals(prev)) {
             int tmp = cur.data;
             prev.next = cur.next;
-            if (cur == caller.first) {
+            if (cur.equals(caller.first)) {
                 caller.first = cur.next;
+            }
+            else if (cur.equals(caller.last)) {
+                caller.last = cur.next;
             }
             cur.next = null;
             cur = prev.next;
             return tmp;
-        } else {
+        } else { // case that cur and prev are same. There are only one elements in the list.
             int tmp = cur.data;
             cur.next = prev.next = null;
             cur = prev = null;
@@ -48,6 +51,12 @@ public class CIter {
             newnode.data = x;
             newnode.next = cur.next;
             cur.next = newnode;
+            if (cur.equals(prev)) {
+                prev = newnode;
+            }
+            if (cur.equals(caller.last)) {
+                caller.last = newnode;
+            }
             return true;
         }
     }
