@@ -23,6 +23,7 @@ class ListSplit {
                     first = first.next;
                 } else {
                     lstp.next = first;
+                    lstp = first;
                     first = first.next;
                 }
             }
@@ -33,6 +34,7 @@ class ListSplit {
                     first = first.next;
                 } else {
                     lstn.next = first;
+                    lstn = first;
                     first = first.next;
                 }
             } else {}
