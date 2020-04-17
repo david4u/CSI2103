@@ -23,7 +23,7 @@ public class CIter {
     }
     public int delete() {
         if (!isValid()) return -1;
-        else if (cur != prev) {
+        else if (!cur.equals(prev)) {
             int tmp = cur.data;
             prev.next = cur.next;
             if (cur == caller.first) {
@@ -48,6 +48,9 @@ public class CIter {
             newnode.data = x;
             newnode.next = cur.next;
             cur.next = newnode;
+            if (cur == prev) {
+                prev = newnode;
+            }
             return true;
         }
     }
