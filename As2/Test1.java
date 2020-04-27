@@ -45,12 +45,33 @@ public class Test1 {
             System.out.println(alIter.getValue());
             alIter.next();
         }
-        int a = new Integer();
-        int b = new Integer();
-        a = 30;
-        b = 30;
-        System.out.println(a.equals(b));
-        System.out.println(a == b);
+        System.out.println(myList.first.next.next.next.next.next.data);
+        CList secondList = new CList();
+        secondList.append(3);
+        CIter mynewIter = secondList.getIter();
+        System.out.println(mynewIter.delete());
+        CIter lastcheck = myList.getIter();
+        for (int i = 0; i < 10; i++) {
+            lastcheck.next();
+        }
+        System.out.println(lastcheck.getValue());
+        lastcheck.insertAfter(777);
+        System.out.println(myList.last.data);
+        System.out.println(lastcheck.caller.last.data);
+        CNode a = new CNode();
+        CNode b = new CNode();
+        CNode c = new CNode();
+        c.data = 4;
+        a.data = 3;
+        a.next = c;
+        b.data = 3;
+        b.next = c;
+        System.out.println(b == a);
+        System.out.println(b.equals(a));
+        b = a;
+        System.out.println(b == a);
+        System.out.println(b.equals(a));
+
     }
 }
 /*

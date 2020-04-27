@@ -4,6 +4,7 @@ class Node {
     public int data;
     public Node next;
 }
+
 class ListSplit {
     public Node outn, outp;
 
@@ -19,25 +20,20 @@ class ListSplit {
             if (first.data > 0) {
                 if (outp == null) {
                     outp = first;
-                    lstp = first;
-                    first = first.next;
                 } else {
                     lstp.next = first;
-                    lstp = first;
-                    first = first.next;
                 }
+                lstp = first;
             }
             else if (first.data < 0) {
                 if (outn == null) {
                     outn = first;
-                    lstn = first;
-                    first = first.next;
                 } else {
                     lstn.next = first;
-                    lstn = first;
-                    first = first.next;
                 }
+                lstn = first;
             } else {}
+            first = first.next;
         }
         lstp.next = null;
         lstn.next = null;

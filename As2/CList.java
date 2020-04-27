@@ -24,10 +24,14 @@ public class CList {
     }
     public CIter getIter() {
         CIter myIter = new CIter();
-        myIter.cur = first;
-        myIter.prev = last;
-        (myIter.caller).first = first;
-        (myIter.caller).last = last;
+        if (first == null){
+            myIter.caller = this;
+        }
+        else {
+            myIter.cur = first;
+            myIter.prev = last;
+            myIter.caller = this;
+        }
         return myIter;
     }
 }
