@@ -1,3 +1,5 @@
+package As4;
+
 public class MST {
 
     public static boolean find(int n, int m, int[] x, int[] y, int[] c, int[] ans) {
